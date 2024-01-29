@@ -14,9 +14,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  TextEditingController _controller1 = new TextEditingController();
-  TextEditingController _controller2 = new TextEditingController();
-  TextEditingController _controller3 = new TextEditingController();
+  final TextEditingController _controller1 = TextEditingController();
+  final TextEditingController _controller2 = TextEditingController();
+  final TextEditingController _controller3 = TextEditingController();
   String selected = "";
   double totalInterest = 0;
   double monthlyInterest = 0;
@@ -48,10 +48,10 @@ class _HomePageState extends State<HomePage> {
         toolbarHeight: 30,
         backgroundColor: Colors.yellow,
         elevation: 0,
-        actions: [
+        actions: const [
           Padding(
-            padding: const EdgeInsets.only(right: 15.0),
-            child: const Icon(
+            padding: EdgeInsets.only(right: 15.0),
+            child: Icon(
               Icons.info,
               size: 30,
               color: Colors.black,
@@ -70,7 +70,7 @@ class _HomePageState extends State<HomePage> {
         children: [
           Container(
             height: 170,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Colors.yellow,
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(30),
@@ -98,7 +98,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Padding(
@@ -122,7 +122,7 @@ class _HomePageState extends State<HomePage> {
                   "Loan Period",
                   style: GoogleFonts.robotoMono(fontSize: 20),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 5,
                 ),
                 Row(
@@ -134,7 +134,7 @@ class _HomePageState extends State<HomePage> {
                     loanPeriod("5")
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 5,
                 ),
                 Row(
@@ -145,7 +145,7 @@ class _HomePageState extends State<HomePage> {
                     loanPeriod("9"),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 50,
                 ),
                 GestureDetector(
@@ -171,7 +171,7 @@ class _HomePageState extends State<HomePage> {
                                     "Result",
                                     style: GoogleFonts.robotoMono(fontSize: 20),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 15,
                                   ),
                                   result(
@@ -183,7 +183,7 @@ class _HomePageState extends State<HomePage> {
                                   result(
                                       title: "Total Installment",
                                       amount: montlyInstallment),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 20,
                                   ),
                                   GestureDetector(
@@ -242,13 +242,13 @@ class _HomePageState extends State<HomePage> {
     return ListTile(
       title: Text(
         title,
-        style: TextStyle(fontSize: 20),
+        style: const TextStyle(fontSize: 20),
       ),
       trailing: Padding(
         padding: const EdgeInsets.only(right: 20.0),
         child: Text(
-          "RM" + amount.toStringAsFixed(2),
-          style: TextStyle(fontSize: 19),
+          "RM${amount.toStringAsFixed(2)}",
+          style: const TextStyle(fontSize: 19),
         ),
       ),
     );
@@ -290,7 +290,7 @@ class _HomePageState extends State<HomePage> {
           title,
           style: GoogleFonts.robotoMono(fontSize: 20),
         ),
-        SizedBox(
+        const SizedBox(
           height: 5,
         ),
         Container(
@@ -300,11 +300,11 @@ class _HomePageState extends State<HomePage> {
           child: TextField(
               controller: controller,
               decoration: InputDecoration(
-                border: OutlineInputBorder(borderSide: BorderSide.none),
+                border: const OutlineInputBorder(borderSide: BorderSide.none),
                 hintText: hint,
               )),
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         )
       ],
