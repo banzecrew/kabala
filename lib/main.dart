@@ -14,18 +14,18 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final TextEditingController _controller1 = TextEditingController();
-  final TextEditingController _controller2 = TextEditingController();
-  final TextEditingController _controller3 = TextEditingController();
+  final TextEditingController priceController = TextEditingController();
+  final TextEditingController paymentController = TextEditingController();
+  final TextEditingController rateController = TextEditingController();
   String selected = "";
   double totalInterest = 0;
   double monthlyInterest = 0;
   double montlyInstallment = 0;
 
   void loancalculation() {
-    final amount = int.parse(_controller1.text) - int.parse(_controller2.text);
+    final amount = int.parse(priceController.text) - int.parse(paymentController.text);
     final tinterest =
-        amount * (double.parse(_controller3.text) / 100) * int.parse(selected);
+        amount * (double.parse(rateController.text) / 100) * int.parse(selected);
     final mininterest = tinterest / (int.parse(selected) * 12);
     final minstall = (amount + tinterest) / (int.parse(selected) * 12);
 
@@ -87,7 +87,6 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       Text(
                         "Car Loan",
-                        //style: GoogleFonts.robotoMono(fontSize: 35),
                         style: GoogleFonts.robotoMono(fontSize: 35),
                       ),
                       Text(
@@ -109,15 +108,15 @@ class _HomePageState extends State<HomePage> {
                 inputForm(
                     title: "Price",
                     hint: "e.g 3500000",
-                    controller: _controller1),
+                    controller: priceController),
                 inputForm(
                     title: "Down Payment",
                     hint: "e.g 9000",
-                    controller: _controller2),
+                    controller: paymentController),
                 inputForm(
                     title: "Interest rate",
                     hint: "e.g 3.5",
-                    controller: _controller3),
+                    controller: rateController),
                 Text(
                   "Loan Period",
                   style: GoogleFonts.robotoMono(fontSize: 20),
@@ -163,7 +162,7 @@ class _HomePageState extends State<HomePage> {
                             alignment: Alignment.bottomCenter,
                             child: Padding(
                               padding: const EdgeInsets.fromLTRB(
-                                  20, 30, 0, 0), // change
+                                  20, 30, 0, 0),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
